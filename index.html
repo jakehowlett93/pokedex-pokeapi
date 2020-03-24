@@ -10,20 +10,29 @@
         <div class="content">
             <div class="titlebar">
                 <h1 class="title">Pokedex</h1>
-                <input type="text" class="searchBar" placeholder="Search a Pokemon!">
+                <form class="searchForm">                
+                    <input type="text" class="searchBar" placeholder="Search a Pokemon!"/>
+                    <input type="submit" class="searchButton" value="search"/>
+                </form>
+
             </div>
             <div class="spriteParent">
                 <img class="sprite" alt="the pokemons sprite">
             </div>
-            <div class="info">
+            <div class="pokeInfoParent">
                 <ul class="pokeInfo">
                     <li class="pokeList" id="pokeName"></li>
                     <li class="pokeList" id="pokeNumber"></li>
                     <li class="pokeList" id="pokeType"></li>
                 </ul>
             </div>
+            <h3>Description:</h3>
             <div class="description"></div>
-            <div class="abilities"></div>
+            <div class="abilitiesParent">
+                <h3>Abilities:</h3>
+                <ol class="abilities">                    
+                </ol>
+            </div>
         </div>
 
 
