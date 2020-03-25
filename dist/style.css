@@ -52,4 +52,8 @@
         display: flex;
         flex-wrap: wrap;
     }
+
+    .descriptionParent {
+        flex-basis: 100%
+    }
 }
