@@ -1,0 +1,24 @@
+{
+  "name": "pokedex-pokeapi",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakehowlett93/pokedex-pokeapi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakehowlett93/pokedex-pokeapi/issues"
+  },
+  "homepage": "https://github.com/jakehowlett93/pokedex-pokeapi#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
