@@ -1,0 +1,55 @@
+.hideElement {
+    opacity: 0;
+}
+
+.titleBar {
+    width: 100%;
+}
+
+.title {
+    font-size: 1.125em;
+    width: 40%
+}
+
+.searchForm {
+    display: flex;
+    height: 22px;
+    width: 60%;
+}
+
+.searchBar {
+    width: 115px;
+}
+
+.pokeInfo {
+    list-style-type: none;
+    padding: 0px;
+}
+
+@media all and (min-width: 300px) {
+    .mainBody {
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+    
+    .titleBar {
+        display:flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .title {
+        width: auto;
+    }
+
+    .searchForm {
+        width: auto;
+        padding-top: 10px;
+        padding-left: 20px;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

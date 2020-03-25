@@ -7,32 +7,36 @@
 
     </head>
     <body>
-        <div class="content">
-            <div class="titlebar">
+        <div class="mainBody">
+            <div class="titleBar">
                 <h1 class="title">Pokedex</h1>
                 <form class="searchForm">                
-                    <input type="text" class="searchBar" placeholder="Search a Pokemon!"/>
+                    <input type="text" class="searchBar" placeholder="search a pokemon!"/>
                     <input type="submit" class="searchButton" value="search"/>
                 </form>
-
             </div>
-            <div class="spriteParent">
-                <img class="sprite" alt="the pokemons sprite">
+            <div class="content hideElement">
+                <div class="spriteParent">
+                    <img class="sprite" alt="the pokemons sprite">
+                </div>
+                <div class="pokeInfoParent">
+                    <ul class="pokeInfo">
+                        <li class="pokeList" id="pokeName"></li>
+                        <li class="pokeList" id="pokeNumber"></li>
+                        <li class="pokeList" id="pokeType"></li>
+                    </ul>
+                </div>
+                <div class="descriptionParent">
+                    <h3>Description:</h3>
+                    <div class="description"></div>
+                </div>
+                <div class="abilitiesParent">
+                    <h3>Abilities:</h3>
+                    <ol class="abilities">                    
+                    </ol>
+                </div>
             </div>
-            <div class="pokeInfoParent">
-                <ul class="pokeInfo">
-                    <li class="pokeList" id="pokeName"></li>
-                    <li class="pokeList" id="pokeNumber"></li>
-                    <li class="pokeList" id="pokeType"></li>
-                </ul>
-            </div>
-            <h3>Description:</h3>
-            <div class="description"></div>
-            <div class="abilitiesParent">
-                <h3>Abilities:</h3>
-                <ol class="abilities">                    
-                </ol>
-            </div>
+            
         </div>
 
 
