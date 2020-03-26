@@ -25,6 +25,7 @@ body {
     display: flex;
     height: 22px;
     width: 60%;
+    padding-left: 10px
 }
 
 .searchBar {
