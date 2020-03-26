@@ -32,7 +32,6 @@ const handleSubmit = async (event) => {
 		pokeTypes += ' / ';
 	});
 	pokeTypes = pokeTypes.substring(0, pokeTypes.length - 2);
-	pokeTypes += 'type';
 	document.getElementById('pokeType').innerHTML = pokeTypes;
 
 	let flavourText;
