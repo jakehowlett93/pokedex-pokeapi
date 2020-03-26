@@ -38,9 +38,12 @@ const handleSubmit = async (event) => {
 	flavourText = species.flavor_text_entries.find((element) => element.language.name === 'en');
 	document.getElementsByClassName('description')[0].innerHTML = flavourText.flavor_text;
 
+	let abilityList = document.getElementsByClassName('abilities')[0];
+	if (abilityList.children.length > 0) {
+		abilityList.innerHTML = "";
+	}
 	pokemon.abilities.forEach((item) => {
 		const ability = item.ability.name;
-		let abilityList = document.getElementsByClassName('abilities')[0];
 		const listElement = document.createElement('li');
 		const abilityTextNode = document.createTextNode(ability);
 		listElement.appendChild(abilityTextNode);
