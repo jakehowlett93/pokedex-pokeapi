@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
+    "watch": "webpack --watch",
+    "debugBuild": "webpack -d --mode development",
     "lint": "eslint \"src/**/*.js\"",
     "prettier": "prettier --write src/**/*.js"
   },
