@@ -3,6 +3,7 @@ import capatalize from '../capitalize';
 import getTypes from '../getTypes';
 import getEnglishFlavorText from '../getEnglishFlavourText';
 import getAbilities from '../getAbilities';
+import clearAbilities from '../clearAbilities';
 
 const handleSubmit = async (event) => {
 	event.preventDefault();
@@ -33,23 +34,18 @@ const handleSubmit = async (event) => {
 	document.getElementById('pokeNumber').innerHTML = pokeNumber;
 
 	document.getElementById('pokeType').innerHTML = getTypes(pokemon.types);
-	
+
 	const flavorText = getEnglishFlavorText(species.flavor_text_entries);
 	document.getElementsByClassName('description')[0].innerHTML = flavorText;
 
 	const abilities = document.getElementsByClassName('abilities')[0];
-	if (abilities.children.length > 0) {
-		abilities.innerHTML = '';
-	}
+	clearAbilities(abilities);
+	getAbilities(pokemon.abilities, abilities);
 
-	getAbilities(pokemon.abilities, abilities)
-
-	const hiddenElements = document.getElementsByClassName('hideElement')[0];
-	if (hiddenElements) {
-		hiddenElements.classList.remove('hideElement');
+	const hiddenElement = document.getElementsByClassName('hideElement')[0];
+	if (hiddenElement) {
+		hiddenElement.classList.remove('hideElement');
 	}
-	
-	
 };
 
 export default handleSubmit;
