@@ -71,6 +71,10 @@ body {
     margin-top: 5px;
 }
 
+.pokeList {
+    list-style-type: none;
+}
+
 .descriptionParent {
     text-align: left;
 }
