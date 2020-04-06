@@ -7,21 +7,20 @@
 
     </head>
     <body>
-        <div class="bodyParent">
+        <main class="bodyParent">
             <div class="mainBody">
-                <div class="titleBar">
+                <header class="titleBar">
                     <img class="title" src="./pokemon-logo.png" alt="pokemon"/>
                     <form class="searchForm">                
                         <input type="text" class="searchBar" placeholder="search a pokemon!"/>
-                        <input type="image" class="searchButton" src="./pokeball-sprite.png" alt="search"/>
-                        
+                        <input type="image" class="searchButton" src="./pokeball-sprite.png" alt="search"/>                      
                     </form>
-                </div>  
-                <div class="content hideElement">
+                </header>  
+                <section class="content hideElement">
                     <div class="spriteParent">
                         <img class="sprite" alt="the pokemons sprite">
                     </div>
-                    <div class="pokeInfoParent">
+                    <section class="pokeInfoParent">
                         <div class="pokeInfo">
                             <ul class="pokeInfoList"></ul>
                                 <li class="pokeList" id="pokeName"></li>
@@ -30,19 +29,19 @@
                             </ul>
                         </div>
 
-                    </div>
-                    <div>
-                        <div class="descriptionParent">
+                    </section>
+                    <section class="descriptionParent">
+                        <div class="descriptionAndAbilities">
                             <h3 class="descriptionHeader">Description:</h3>
                             <div class="description"></div>
                             <h3 class="abilitiesHeader">Abilities:</h3>
                             <ol class="abilities">                    
                             </ol>
                         </div>
-                    </div>
-                </div>  
+                    </section>
+                </section>  
             </div>
-        </div>
+        </main>
         <script type="module" src="main.js"></script>
     </body>
 </html>
