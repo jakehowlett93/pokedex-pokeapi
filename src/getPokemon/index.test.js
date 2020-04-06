@@ -13,11 +13,13 @@ global.fetch = jest.fn().mockImplementation(() => {
     })
 })
 
+const api = 'mock-api'
+
 describe('getPokemon', () => {
 
     
     it('should get the data', async () => {
-        const data = await getPokemon();
+        const data = await getPokemon(api);
         expect(data.Id).toEqual("mock-data")
     });
 });
