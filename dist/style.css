@@ -1,11 +1,11 @@
 body { 
     margin: 0 0 0 0;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: "Comic Sans MS", "Comic Sans", Arial;
  }
 
  .bodyParent {
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
  }
 
 .hideElement {
@@ -90,4 +90,70 @@ body {
 .abilities {
     padding-left: 18px;
     margin: 0
+}
+
+
+@media all and (max-width: 22em) {
+    .mainBody {
+        display: inline-block;
+        padding-top: 10px;
+        font-size: 16px;
+    }
+    
+    .titleBar {
+        display:flex;
+        width: 100%;
+        justify-content: center;
+        background-color: rgb(230, 29, 35);
+        padding-bottom: 30px;
+        padding-top: 20px;
+        outline: solid;
+        outline-width: medium;
+        outline-width: 2px;
+        outline-offset: -2px;
+    }
+
+    .title {
+        min-width: 100px;
+    }
+
+    .searchForm {
+        width: auto;
+        padding-top: 10px;
+        padding-left: 20px;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px 20px 20px 20px;
+        border-style: solid;
+        border-width: 2px;
+        background-color: rgb(230, 29, 35);
+        width: 280px;
+        margin: auto;
+    }
+
+    .pokeInfoParent {
+        background-color: rgb(95, 224, 52);
+        min-width: 150px;
+        border-style: solid;
+        border-width: 1px;
+        height: 96px;
+    }
+
+    .descriptionParent {
+        background-color: rgb(95, 224, 52);
+        border-style: solid;
+        border-width: 1px;
+        padding: 5px;
+    }
+}
+
+@media all and (max-width: 40em) {
+    .mainBody {
+        padding-left: 25%;
+        padding-right: 25%;
+        display: inline-block;
+    }
 }
