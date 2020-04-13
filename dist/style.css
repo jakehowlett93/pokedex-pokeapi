@@ -1,11 +1,11 @@
 body { 
     margin: 0 0 0 0;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: "Comic Sans MS", "Comic Sans", Arial;
  }
 
  .bodyParent {
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
  }
 
 .hideElement {
@@ -93,7 +93,7 @@ body {
 }
 
 
-@media all and (min-width: 330px) {
+@media all and (min-width: 22em) {
     .mainBody {
         display: inline-block;
         padding-top: 10px;
@@ -150,7 +150,7 @@ body {
     }
 }
 
-@media all and (min-width: 600px) {
+@media all and (min-width: 40em) {
     .mainBody {
         padding-left: 25%;
         padding-right: 25%;
