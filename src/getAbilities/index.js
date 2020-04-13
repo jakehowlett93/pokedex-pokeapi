@@ -6,7 +6,7 @@ const getAbilities = (abilitiesList, abilities) => {
 		listElement.appendChild(abilityTextNode);
 		abilities.appendChild(listElement);
 	});
-	return abilities
+	return abilities;
 };
 
 export default getAbilities;

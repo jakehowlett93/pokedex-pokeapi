@@ -1,7 +1,7 @@
 const updateApiDataName = (searchBar, apiData) => {
-    if (searchBar.value) {
-        apiData.name = searchBar.value
-    }
-}
+	if (searchBar.value) {
+		apiData.name = searchBar.value;
+	}
+};
 
-export default updateApiDataName
+export default updateApiDataName;

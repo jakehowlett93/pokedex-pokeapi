@@ -1,18 +1,14 @@
-import clearAbilities from './index'
+import clearAbilities from './index';
 
 describe('clearAbilities', () => {
-    const abilities = document.body
-    abilities.innerHTML =
-    '<div>' +
-    '  <span id="username" />' +
-    '  <button id="button" />' +
-    '</div>'; 
+	const abilities = document.body;
+	abilities.innerHTML = '<div>' + '  <span id="username" />' + '  <button id="button" />' + '</div>';
 
-    beforeEach(() => {
-        clearAbilities(abilities)
-    });
+	beforeEach(() => {
+		clearAbilities(abilities);
+	});
 
-    it('should remove the child elements', () => {
-        expect(abilities.innerHTML).toEqual("")
-    });
-})
+	it('should remove the child elements', () => {
+		expect(abilities.innerHTML).toEqual('');
+	});
+});

@@ -4,7 +4,7 @@ const makeRequest = async (apiUrl) => {
 		const data = await response.json();
 		return data;
 	} catch (e) {
-		alert("something went wrong! Perhaps that pokemon doesnt exist.");
+		alert('something went wrong! Perhaps that pokemon doesnt exist.');
 	}
 };
 

@@ -16,20 +16,20 @@ const handleSubmit = async (event) => {
 		name: '',
 	};
 	const searchBar = document.getElementsByClassName('searchBar')[0];
-	updateApiDataName(searchBar, apiData)
+	updateApiDataName(searchBar, apiData);
 
 	let { url, type, name } = apiData;
 	let apiPokemonUrl = `${url}${type}/${name}`;
 	let apiSpeciesUrl = `${url}${type}-species/${name}`;
-	
+
 	const pokemon = await makeRequest(apiPokemonUrl);
-	let species
+	let species;
 	if (pokemon) {
 		species = await makeRequest(apiSpeciesUrl);
 	} else {
-		return
+		return;
 	}
-	
+
 	document.getElementsByClassName('sprite')[0].src = pokemon.sprites.front_default;
 
 	document.getElementById('pokeName').innerHTML = capitalize(pokemon.name);
@@ -47,7 +47,7 @@ const handleSubmit = async (event) => {
 	getAbilities(pokemon.abilities, abilities);
 
 	const hiddenElement = document.getElementsByClassName('hideElement')[0];
-	showHiddenElement(hiddenElement)
+	showHiddenElement(hiddenElement);
 };
 
 export default handleSubmit;
