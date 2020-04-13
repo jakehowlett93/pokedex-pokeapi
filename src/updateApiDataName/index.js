@@ -1,6 +1,9 @@
 const updateApiDataName = (searchBar, apiData) => {
 	if (searchBar.value) {
-		apiData.name = searchBar.value;
+        let name = searchBar.value;
+        name = name.toLowerCase()
+        name = name.trim();
+		apiData.name = name;
 	}
 };
 
