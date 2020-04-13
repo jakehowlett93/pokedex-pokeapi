@@ -20,14 +20,18 @@ jest.mock('../showHiddenElement')
 describe('handleSubmit', () => {
     const event = {
         preventDefault: jest.fn()
-    }
+    };
 
     const mockApiObj = {
         sprites: {
             front_default: 'mock-sprite'
         },
-        order: 'mock-order'
-    }
+        order: 'mock-order',
+        name: 'mock-name',
+        types: 'mock-type',
+        flavor_text_entries: 'mock-value',
+        abilities: 'mock-value'
+    };
 
     beforeEach(() => {
         handleSubmit(event)
@@ -44,20 +48,29 @@ describe('handleSubmit', () => {
     });
 
     describe('when updateApiDataName is called', () => {
-        it('should call updateApiDataName', () => {
-            expect(updateApiDataName).toHaveBeenCalled()
+        const searchDiv = document.createElement('div')
+        searchDiv.classList.add('searchBar')
+        document.body.append(searchDiv)
+        const searchBar = document.getElementsByClassName('searchBar')[0];
+        const apiData = {
+            url: 'https://pokeapi.co/api/v2/',
+            type: 'pokemon',
+            name: '',
+        };
+        it('should call updateApiDataName with searchBar, apiData', () => {
+            expect(updateApiDataName).toHaveBeenCalledWith(searchBar, apiData)
         });
     });
 
     describe('when makeRequest is called', () => {
-        it('should call makeRequest', () => {
-            expect(makeRequest).toHaveBeenCalled()
+        const apiPokemonUrl ='https://pokeapi.co/api/v2/pokemon/'
+        it('should call makeRequest with apiPokemonUrl', () => {
+            expect(makeRequest).toHaveBeenCalledWith(apiPokemonUrl)
         });
     });
 
     describe('when checking if the pokemon object exists', () => {
         const apiSpeciesUrl ='https://pokeapi.co/api/v2/pokemon-species/'
-
         describe('if the pokemon object exists', () => {           
             it('should call makeRequest with apiSpeciesUrl', () => {
                 expect(makeRequest).toHaveBeenCalledWith(apiSpeciesUrl)
@@ -69,7 +82,7 @@ describe('handleSubmit', () => {
                 makeRequest.mockClear();
                 makeRequest.mockReturnValue(false)
             })
-            it('should exit the function', () => {
+            it('should not call makeRequest with apiSpeciesUrl', () => {
                 expect(makeRequest).not.toHaveBeenCalledWith(apiSpeciesUrl)
             });
         });
@@ -91,8 +104,8 @@ describe('handleSubmit', () => {
         it('should set it to the right value', () => {
             expect(pokeName.innerHTML).toEqual('mock-value')
         });
-        it('should call capitalize', () => {
-            expect(capitalize).toHaveBeenCalled()
+        it('should call capitalize with pokemon.name', () => {
+            expect(capitalize).toHaveBeenCalledWith(mockApiObj.name)
         });
     });
 
@@ -112,8 +125,8 @@ describe('handleSubmit', () => {
         it('should set it to the correct value', () => {
             expect(pokeType.innerHTML).toEqual('mock-value')
         });
-        it('should call getTypes', () => {
-            expect(getTypes).toHaveBeenCalled()
+        it('should call getTypes with pokemon.types', () => {
+            expect(getTypes).toHaveBeenCalledWith(mockApiObj.types)
         });
     })
 
@@ -124,23 +137,31 @@ describe('handleSubmit', () => {
         it('should set it to the correct value', () => {
             expect(description.innerHTML).toEqual('mock-value')
         });
-        it('should call getEnglishFlavorText', () => {
-            expect(getEnglishFlavorText).toHaveBeenCalled()
+        it('should call getEnglishFlavorText with species.flavor_text_entries', () => {
+            expect(getEnglishFlavorText).toHaveBeenCalledWith(mockApiObj.flavor_text_entries)
         })
     });
 
     describe('when populating the abilities element', () => {
-        it('should clear the element by calling clearAbilities', () => {
-            expect(clearAbilities).toHaveBeenCalled()
+        const abilitiesDiv = document.createElement('div')
+        abilitiesDiv.classList.add('abilities')
+        document.body.append(abilitiesDiv)
+        const abilities = document.getElementsByClassName('abilities')[0];
+        it('should clear the element by calling clearAbilities with abilities', () => {
+            expect(clearAbilities).toHaveBeenCalledWith(abilities)
         });
-        it('should populate the element by calling getAbilities', () => {
-            expect(getAbilities).toHaveBeenCalled()
+        it('should populate the element by calling getAbilities with pokemon.abilities, abilities', () => {
+            expect(getAbilities).toHaveBeenCalledWith(mockApiObj.abilities, abilities)
         });
     });
 
     describe('when unhiding the hidden element', () => {
-        it('should call showHiddenElement', () => {
-            expect(showHiddenElement).toHaveBeenCalled()
+        const hiddenElementDiv = document.createElement('div')
+        hiddenElementDiv.classList.add('hideElement')
+        document.body.append(hiddenElementDiv)
+        const hiddenElement = document.getElementsByClassName('hideElement')[0];
+        it('should call showHiddenElement with hiddenElement', () => {
+            expect(showHiddenElement).toHaveBeenCalledWith(hiddenElement)
         });
     });
 });
