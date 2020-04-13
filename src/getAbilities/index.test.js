@@ -9,13 +9,13 @@ describe('getAbilities', () => {
             }
         }
     ]
-    let returnValue;
+
 
     beforeEach(() => {
-        returnValue = getAbilities(abilitiesList, abilities)
+        getAbilities(abilitiesList, abilities)
     });
 
     it('should remove the child elements', () => {
-        expect(returnValue.innerHTML).toEqual("<li>mock-name</li>")
+        expect(abilities.innerHTML).toEqual("<li>mock-name</li>")
     });
 })

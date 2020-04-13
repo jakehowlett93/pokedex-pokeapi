@@ -7,13 +7,12 @@ describe('clearAbilities', () => {
     '  <span id="username" />' +
     '  <button id="button" />' +
     '</div>'; 
-    let returnValue;
 
     beforeEach(() => {
-        returnValue = clearAbilities(abilities)
+        clearAbilities(abilities)
     });
 
     it('should remove the child elements', () => {
-        expect(returnValue.innerHTML).toEqual("")
+        expect(abilities.innerHTML).toEqual("")
     });
 })

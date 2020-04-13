@@ -1,9 +1,11 @@
-import getPokemon from '../getPokemon';
-import capatalize from '../capitalize';
+import makeRequest from '../makeRequest';
+import capitalize from '../capitalize';
 import getTypes from '../getTypes';
 import getEnglishFlavorText from '../getEnglishFlavorText';
 import getAbilities from '../getAbilities';
 import clearAbilities from '../clearAbilities';
+import showHiddenElement from '../showHiddenElement';
+import updateApiDataName from '../updateApiDataName';
 
 const handleSubmit = async (event) => {
 	event.preventDefault();
@@ -14,21 +16,23 @@ const handleSubmit = async (event) => {
 		name: '',
 	};
 	const searchBar = document.getElementsByClassName('searchBar')[0];
-	if (searchBar.value) {
-		apiData.name = searchBar.value;
-	}
+	updateApiDataName(searchBar, apiData)
 
 	let { url, type, name } = apiData;
 	let apiPokemonUrl = `${url}${type}/${name}`;
 	let apiSpeciesUrl = `${url}${type}-species/${name}`;
-
-	const pokemon = await getPokemon(apiPokemonUrl);
-	const species = await getPokemon(apiSpeciesUrl);
-
+	
+	const pokemon = await makeRequest(apiPokemonUrl);
+	let species
+	if (pokemon) {
+		species = await makeRequest(apiSpeciesUrl);
+	} else {
+		return
+	}
+	
 	document.getElementsByClassName('sprite')[0].src = pokemon.sprites.front_default;
 
-	const pokeName = capatalize(pokemon.name);
-	document.getElementById('pokeName').innerHTML = pokeName;
+	document.getElementById('pokeName').innerHTML = capitalize(pokemon.name);
 
 	const pokeNumber = '#' + pokemon.order;
 	document.getElementById('pokeNumber').innerHTML = pokeNumber;
@@ -43,9 +47,7 @@ const handleSubmit = async (event) => {
 	getAbilities(pokemon.abilities, abilities);
 
 	const hiddenElement = document.getElementsByClassName('hideElement')[0];
-	if (hiddenElement) {
-		hiddenElement.classList.remove('hideElement');
-	}
+	showHiddenElement(hiddenElement)
 };
 
 export default handleSubmit;

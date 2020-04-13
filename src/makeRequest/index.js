@@ -1,4 +1,4 @@
-const getPokemon = async (apiUrl) => {
+const makeRequest = async (apiUrl) => {
 	try {
 		const response = await fetch(apiUrl);
 		const data = await response.json();
@@ -8,4 +8,4 @@ const getPokemon = async (apiUrl) => {
 	}
 };
 
-export default getPokemon;
+export default makeRequest;
