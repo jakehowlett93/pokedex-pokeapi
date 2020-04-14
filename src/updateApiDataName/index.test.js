@@ -1,18 +1,16 @@
 import updateApiDataName from './index';
 
 describe('updateApiDataName', () => {
-	const apiData = {
-		name: 'no-change',
-	};
-
 	const searchBar = document.body;
 	searchBar.value = 'mock-value';
+	
 
+	let returnValue;
 	beforeEach(() => {
-		updateApiDataName(searchBar, apiData);
+		returnValue = updateApiDataName(searchBar);
 	});
 
-	it('should update the name value for apiData', () => {
-		expect(apiData.name).toEqual('mock-value');
+	it('should return the name value', () => {
+		expect(returnValue).toEqual('mock-value');
 	});
 });

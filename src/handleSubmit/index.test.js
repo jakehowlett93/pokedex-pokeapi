@@ -52,25 +52,32 @@ describe('handleSubmit', () => {
 		searchDiv.classList.add('searchBar');
 		document.body.append(searchDiv);
 		const searchBar = document.getElementsByClassName('searchBar')[0];
-		const apiData = {
-			url: 'https://pokeapi.co/api/v2/',
-			type: 'pokemon',
-			name: '',
-		};
 		it('should call updateApiDataName with searchBar, apiData', () => {
-			expect(updateApiDataName).toHaveBeenCalledWith(searchBar, apiData);
+			expect(updateApiDataName).toHaveBeenCalledWith(searchBar);
+		});
+	});
+
+	describe('if apiData.name is empty (user submitted an empty search)', () => {
+		mockApiObj.name = ''
+		it('should exit out of the function', () => {
+			makeRequest.mockClear()
+			expect(makeRequest).not.toHaveBeenCalled()
 		});
 	});
 
 	describe('when makeRequest is called', () => {
-		const apiPokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
+		const apiPokemonUrl = 'https://pokeapi.co/api/v2/pokemon/mock-value';
+
+		beforeEach(() => {
+			makeRequest.mockReturnValue(mockApiObj);
+		});
 		it('should call makeRequest with apiPokemonUrl', () => {
 			expect(makeRequest).toHaveBeenCalledWith(apiPokemonUrl);
 		});
 	});
 
 	describe('when checking if the pokemon object exists', () => {
-		const apiSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
+		const apiSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/mock-value';
 		describe('if the pokemon object exists', () => {
 			it('should call makeRequest with apiSpeciesUrl', () => {
 				expect(makeRequest).toHaveBeenCalledWith(apiSpeciesUrl);

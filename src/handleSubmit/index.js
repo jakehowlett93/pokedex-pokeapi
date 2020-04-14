@@ -16,7 +16,11 @@ const handleSubmit = async (event) => {
 		name: '',
 	};
 	const searchBar = document.getElementsByClassName('searchBar')[0];
-	updateApiDataName(searchBar, apiData);
+
+	apiData.name = updateApiDataName(searchBar);
+	if (!apiData.name) {
+		return
+	}
 
 	let { url, type, name } = apiData;
 	let apiPokemonUrl = `${url}${type}/${name}`;
